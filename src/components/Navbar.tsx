@@ -65,7 +65,7 @@ const Navbar = () => {
             <a href={SHOP_URL}>Acheter</a>
           </Button>
         </div>
-      )}}
+      )}
     </nav>
   );
 };

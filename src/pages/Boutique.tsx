@@ -36,7 +36,7 @@ const Boutique = () => {
           backgroundImage: 'url("https://images.unsplash.com/photo-1594882635126-2e7f5d75ecd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: window.innerWidth >= 768 ? 'fixed' : 'scroll'
+          backgroundAttachment: 'fixed'
         }}
       >
         <div className="absolute inset-0 bg-foreground/70"></div>
