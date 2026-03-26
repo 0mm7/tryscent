@@ -31,29 +31,29 @@ const Boutique = () => {
     <Layout>
       {/* Hero */}
       <section 
-        className="relative py-16 lg:py-24 text-foreground overflow-hidden"
+        className="relative py-12 sm:py-16 lg:py-24 text-foreground overflow-hidden"
         style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1594882635126-2e7f5d75ecd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8ZW58MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: window.innerWidth >= 768 ? 'fixed' : 'scroll'
         }}
       >
         <div className="absolute inset-0 bg-foreground/70"></div>
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-sm">COLLECTION</span>
-              <span className="text-sm text-background/70">8 parfums · Qualité EDP · Livraison rapide</span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+              <span className="bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-3 sm:px-4 py-1 sm:py-1.5 rounded-sm">COLLECTION</span>
+              <span className="text-xs sm:text-sm text-background/70">8 parfums · Qualité EDP · Livraison rapide</span>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-background">La Collection</h1>
-            <p className="text-xl text-background/80 max-w-3xl leading-relaxed mx-auto mb-8">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-background">La Collection</h1>
+            <p className="text-base sm:text-lg md:text-xl text-background/80 max-w-3xl leading-relaxed mx-auto mb-6 sm:mb-8">
               Chaque parfum. <span className="text-primary font-bold">€11,99</span>. Sans exception. Mêmes ingrédients. Même concentration. 3 achetés, 1 offert.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-xs font-bold tracking-widest uppercase text-background/60">
-              <span className="flex items-center gap-1.5"><Factory size={14} /> Fabriqué en UE</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck size={14} /> Conforme IFRA</span>
-              <span className="flex items-center gap-1.5"><Droplets size={14} /> Concentration EDP</span>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 text-xs font-bold tracking-widest uppercase text-background/60">
+              <span className="inline-flex items-center gap-1 sm:gap-1.5"><Factory size={12} className="sm:w-4 sm:h-4" /> Fabriqué en UE</span>
+              <span className="inline-flex items-center gap-1 sm:gap-1.5"><ShieldCheck size={12} className="sm:w-4 sm:h-4" /> Conforme IFRA</span>
+              <span className="inline-flex items-center gap-1 sm:gap-1.5"><Droplets size={12} className="sm:w-4 sm:h-4" /> Concentration EDP</span>
             </div>
           </div>
         </div>

@@ -40,18 +40,18 @@ const AnimatedBar = ({ label, pct, color }: { label: string; pct: number; color:
 const TestAveugle = () => (
   <Layout>
     {/* Hero */}
-    <section className="bg-background text-foreground py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <section className="bg-background text-foreground py-12 sm:py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         <div className="max-w-4xl">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-sm">TEST EN AVEUGLE</span>
-            <span className="text-sm text-muted-foreground">Étude indépendante · Mars 2026 · 5 min de lecture</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <span className="bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-3 sm:px-4 py-1 sm:py-1.5 rounded-sm whitespace-nowrap">TEST EN AVEUGLE</span>
+            <span className="text-xs sm:text-sm text-muted-foreground">Étude indépendante · Mars 2026 · 5 min de lecture</span>
           </div>
 
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
             73% des gens ne voient <span className="text-primary">pas la différence</span> entre un parfum à €250 et un à €11,99
           </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
             Nous avons fait tester nos parfums en aveugle à 200 personnes. Le résultat a choqué même les experts de l'industrie.
           </p>
         </div>

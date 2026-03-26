@@ -64,17 +64,17 @@ const Calculateur = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-background text-foreground py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <section className="bg-background text-foreground py-12 sm:py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-8">
-              <span className="bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-sm">CALCULATEUR</span>
-              <span className="text-sm text-muted-foreground">Outil gratuit · Calcul en direct · 2 min</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+              <span className="bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase px-3 sm:px-4 py-1 sm:py-1.5 rounded-sm whitespace-nowrap">CALCULATEUR</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">Outil gratuit · Calcul en direct · 2 min</span>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-4xl">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 max-w-4xl">
               Combien <span className="text-primary">surpayez-vous</span> ?
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
               Calculez vos économies réelles en passant des parfums de luxe aux alternatives Magic Perfume fabriquées en UE.
             </p>
           </div>
