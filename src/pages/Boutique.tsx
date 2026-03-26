@@ -59,9 +59,9 @@ const Boutique = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
         {/* Product grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6 mb-12 sm:mb-20">
           {products.map((p) => (
             <div key={p.id} className="bg-secondary rounded-2xl overflow-hidden group hover:shadow-xl transition-all border border-border/40 hover:border-primary/30">
               <div className="relative aspect-square bg-muted flex items-center justify-center overflow-hidden">

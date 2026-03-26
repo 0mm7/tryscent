@@ -81,19 +81,19 @@ const Calculateur = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-14">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-6 sm:gap-10 lg:gap-14">
           {/* Left — inputs */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-5 flex items-center gap-2">
               <Sparkles size={16} className="text-primary" /> Votre parfum actuel
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-8 sm:mb-10">
               {perfumes.map((p, i) => (
                 <button
                   key={i}
                   onClick={() => setSelected(i)}
-                  className={`text-left px-5 py-4 rounded-xl border text-base font-medium transition-all ${
+                  className={`text-left px-3 sm:px-5 py-3 sm:py-4 rounded-lg sm:rounded-xl border text-sm sm:text-base font-medium transition-all ${
                     selected === i
                       ? "border-primary bg-primary/10 text-foreground shadow-md"
                       : "border-border bg-secondary text-muted-foreground hover:border-primary/40"
@@ -132,7 +132,7 @@ const Calculateur = () => {
           </div>
 
           {/* Right — results */}
-          <div className="bg-foreground text-background rounded-2xl p-8 lg:p-12 flex flex-col justify-center sticky top-32">
+          <div className="bg-foreground text-background rounded-2xl p-4 sm:p-8 lg:p-12 flex flex-col justify-center sticky top-20 sm:top-32">
             <div className="flex items-center gap-2 mb-3">
               <Calculator size={20} className="text-primary" />
               <p className="text-xs font-bold uppercase tracking-widest text-background/50">Vos économies totales</p>

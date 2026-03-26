@@ -76,8 +76,8 @@ const Enquete = () => (
     <section className="bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div>
-          <p className="text-3xl md:text-4xl font-bold font-serif text-primary">10 400+</p>
-          <p className="text-sm text-background/60 mt-1">Acheteurs vérifiés</p>
+          <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-primary">10 400+</p>
+          <p className="text-xs sm:text-sm text-background/60 mt-1">Acheteurs vérifiés</p>
         </div>
         <div>
           <p className="text-3xl md:text-4xl font-bold font-serif text-primary">4.7★</p>

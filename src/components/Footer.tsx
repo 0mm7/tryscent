@@ -23,7 +23,7 @@ const Footer = () => (
   <footer className="bg-foreground text-background">
     {/* Pre-footer CTA */}
     <div className="border-b border-background/10">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-6 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
         <div className="text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
@@ -42,7 +42,7 @@ const Footer = () => (
 
     {/* Trust badges */}
     <div className="border-b border-background/10">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-6 flex flex-wrap justify-center gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-4 sm:py-6 flex flex-wrap justify-center gap-4 sm:gap-8">
         {trustBadges.map(({ icon: Icon, label }) => (
           <div key={label} className="flex items-center gap-2 text-background/60 text-sm">
             <Icon size={18} className="text-primary" />
@@ -53,8 +53,8 @@ const Footer = () => (
     </div>
 
     {/* Main footer */}
-    <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-14">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 mb-8 sm:mb-12">
         {/* Brand */}
         <div className="sm:col-span-2 lg:col-span-1">
           <span className="font-serif text-xl tracking-[0.2em] font-bold block mb-4">MAGIC PERFUME</span>

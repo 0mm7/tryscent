@@ -43,23 +43,23 @@ const Coulisses = () => (
 
     {/* Key metrics */}
     <section className="border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-6 sm:py-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
         {[
           { icon: TrendingDown, stat: "95%", label: "Moins cher" },
           { icon: ShieldCheck, stat: "100%", label: "Conforme UE" },
           { icon: Factory, stat: "33–50%", label: "Budget parfum réel" },
           { icon: Truck, stat: "2–5j", label: "Livraison" },
         ].map(({ icon: Icon, stat, label }, i) => (
-          <div key={i} className="flex flex-col items-center gap-2">
-            <Icon size={24} className="text-primary" />
-            <p className="text-2xl md:text-3xl font-bold font-serif">{stat}</p>
-            <p className="text-sm text-muted-foreground">{label}</p>
+          <div key={i} className="flex flex-col items-center gap-1 sm:gap-2">
+            <Icon size={18} className="sm:w-6 sm:h-6 text-primary" />
+            <p className="text-lg sm:text-2xl md:text-3xl font-bold font-serif leading-tight">{stat}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">{label}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <article className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-20">
+    <article className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
       {/* Pct table */}
       <div className="mb-16">
         <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-8">Répartition du prix en %</h2>
@@ -67,9 +67,9 @@ const Coulisses = () => (
           <table className="w-full text-base">
             <thead>
               <tr className="border-b-2 border-foreground/20">
-                <th className="text-left py-5 px-6 font-sans font-medium text-muted-foreground"></th>
-                <th className="text-center py-5 px-6 font-sans font-medium text-muted-foreground">Marque de luxe — €250</th>
-                <th className="text-center py-5 px-6 font-sans font-medium relative">
+                <th className="text-left py-3 sm:py-5 px-2 sm:px-6 font-sans font-medium text-muted-foreground text-xs sm:text-sm"></th>
+                <th className="text-center py-3 sm:py-5 px-2 sm:px-6 font-sans font-medium text-muted-foreground text-xs sm:text-sm">Marque luxe</th>
+                <th className="text-center py-3 sm:py-5 px-2 sm:px-6 font-sans font-medium relative text-xs sm:text-sm">
                   <span className="text-foreground">Magic Perfume — €11,99</span>
                   <span className="ml-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-sm">95% MOINS CHER</span>
                 </th>
@@ -78,9 +78,9 @@ const Coulisses = () => (
             <tbody>
               {pctRows.map((r, i) => (
                 <tr key={i} className={`border-b border-border/60 ${r.highlight ? "bg-primary/5" : ""}`}>
-                  <td className="py-5 px-6 font-medium">{r.label}</td>
-                  <td className="py-5 px-6 text-center text-muted-foreground">{r.lux}</td>
-                  <td className="py-5 px-6 text-center font-semibold text-primary">{r.mp}</td>
+                  <td className="py-3 sm:py-5 px-2 sm:px-6 font-medium text-xs sm:text-sm">{r.label}</td>
+                  <td className="py-3 sm:py-5 px-2 sm:px-6 text-center text-muted-foreground text-xs sm:text-sm">{r.lux}</td>
+                  <td className="py-3 sm:py-5 px-2 sm:px-6 text-center font-semibold text-primary text-xs sm:text-sm">{r.mp}</td>
                 </tr>
               ))}
             </tbody>
