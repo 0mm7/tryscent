@@ -62,31 +62,31 @@ const Coulisses = () => (
     <article className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
       {/* Pct table */}
       <div className="mb-16">
-        <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-8">Répartition du prix en %</h2>
-        <div className="overflow-x-auto bg-secondary rounded-2xl border border-border">
-          <table className="w-full text-base">
+        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold mb-5 sm:mb-8">Répartition du prix en %</h2>
+        <div className="overflow-x-auto bg-secondary rounded-2xl border border-border scrollbar-hide">
+          <table className="min-w-[420px] w-full text-xs sm:text-sm md:text-base">
             <thead>
               <tr className="border-b-2 border-foreground/20">
-                <th className="text-left py-3 sm:py-5 px-2 sm:px-6 font-sans font-medium text-muted-foreground text-xs sm:text-sm"></th>
-                <th className="text-center py-3 sm:py-5 px-2 sm:px-6 font-sans font-medium text-muted-foreground text-xs sm:text-sm">Marque luxe</th>
-                <th className="text-center py-3 sm:py-5 px-2 sm:px-6 font-sans font-medium relative text-xs sm:text-sm">
+                <th className="text-left py-2 sm:py-3 px-2 sm:px-4 font-sans font-medium text-muted-foreground text-xs sm:text-sm"></th>
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-sans font-medium text-muted-foreground text-xs sm:text-sm">Marque luxe</th>
+                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-sans font-medium relative text-xs sm:text-sm">
                   <span className="text-foreground">Magic Perfume — €11,99</span>
-                  <span className="ml-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-sm">95% MOINS CHER</span>
+                  <span className="ml-1 sm:ml-2 bg-primary text-primary-foreground text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm">95% MOINS CHER</span>
                 </th>
               </tr>
             </thead>
             <tbody>
               {pctRows.map((r, i) => (
                 <tr key={i} className={`border-b border-border/60 ${r.highlight ? "bg-primary/5" : ""}`}>
-                  <td className="py-3 sm:py-5 px-2 sm:px-6 font-medium text-xs sm:text-sm">{r.label}</td>
-                  <td className="py-3 sm:py-5 px-2 sm:px-6 text-center text-muted-foreground text-xs sm:text-sm">{r.lux}</td>
-                  <td className="py-3 sm:py-5 px-2 sm:px-6 text-center font-semibold text-primary text-xs sm:text-sm">{r.mp}</td>
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">{r.label}</td>
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 text-center text-muted-foreground text-xs sm:text-sm">{r.lux}</td>
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 text-center font-semibold text-primary text-xs sm:text-sm">{r.mp}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="flex flex-col md:flex-row gap-4 mt-6 text-sm text-muted-foreground">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4 sm:mt-6 text-xs sm:text-sm text-muted-foreground">
           <p className="flex-1">Source : analyses financières secteur parfumerie, rapports annuels LVMH & Coty</p>
           <p className="flex-1 font-medium text-foreground">La majorité de votre argent va dans le parfum, pas dans la pub.</p>
         </div>
