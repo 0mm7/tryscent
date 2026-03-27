@@ -61,26 +61,26 @@ const Boutique = () => {
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
         {/* Product grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6 mb-12 sm:mb-20">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 xs:gap-4 md:gap-5 lg:gap-6 mb-12 sm:mb-20">
           {products.map((p) => (
-            <div key={p.id} className="bg-secondary rounded-2xl overflow-hidden group hover:shadow-xl transition-all border border-border/40 hover:border-primary/30">
+            <div key={p.id} className="bg-secondary rounded-2xl overflow-hidden group hover:shadow-xl transition-all border border-border/40 hover:border-primary/30 flex flex-col h-full">
               <div className="relative aspect-square bg-muted flex items-center justify-center overflow-hidden">
                 <img 
                   src={p.image} 
                   alt={p.name} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-md">{p.discount}</span>
-                <span className={`absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded-md ${p.gender === "FEMME" ? "bg-pink-100 text-pink-700" : "bg-blue-100 text-blue-700"}`}>{p.gender}</span>
+                <span className="absolute top-2 left-2 bg-primary text-primary-foreground text-[10px] xs:text-xs font-bold px-2 py-1 rounded-md">{p.discount}</span>
+                <span className={`absolute top-2 right-2 text-[10px] xs:text-xs font-bold px-2 py-1 rounded-md ${p.gender === "FEMME" ? "bg-pink-100 text-pink-700" : "bg-blue-100 text-blue-700"}`}>{p.gender}</span>
               </div>
-              <div className="p-5">
-                <p className="font-semibold text-base mb-2">{p.name} — {p.inspiration}</p>
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-muted-foreground line-through text-sm">€250</span>
-                  <span className="text-primary font-bold text-xl">€11,99</span>
+              <div className="p-3 xs:p-4 flex flex-col flex-1 justify-between">
+                <p className="font-semibold text-sm xs:text-base mb-1 xs:mb-2">{p.name} — {p.inspiration}</p>
+                <div className="flex items-center gap-2 mb-3 xs:mb-4">
+                  <span className="text-muted-foreground line-through text-xs xs:text-sm">€250</span>
+                  <span className="text-primary font-bold text-lg xs:text-xl">€11,99</span>
                 </div>
-                <Button variant="cta" size="default" className="w-full" asChild>
-                  <a href={p.url}>Ajouter au panier</a>
+                <Button variant="cta" size="lg" className="w-full text-xs xs:text-sm py-3 rounded-lg mt-auto" asChild>
+                  <a href={p.url} className="w-full flex items-center justify-center">Ajouter au panier</a>
                 </Button>
               </div>
             </div>
@@ -104,23 +104,23 @@ const Boutique = () => {
         {/* Bundle offers */}
         <div className="mb-20">
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-center mb-10">Économisez encore plus</h2>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-3 xs:gap-5">
             {[
               { qty: "1 flacon", price: "€11,99", orig: null, badge: null },
               { qty: "3 flacons", price: "€29,97", orig: "€35,97", badge: "LE PLUS POPULAIRE" },
               { qty: "6 flacons", price: "€49,99", orig: "€71,94", badge: "MEILLEURE VALEUR" },
             ].map((b, i) => (
-              <div key={i} className={`relative rounded-2xl p-8 text-center border-2 transition-all ${b.badge ? "border-primary bg-primary/5 shadow-lg" : "border-border bg-secondary"}`}>
+              <div key={i} className={`relative rounded-2xl p-5 xs:p-8 text-center border-2 transition-all flex flex-col ${b.badge ? "border-primary bg-primary/5 shadow-lg" : "border-border bg-secondary"}`}>
                 {b.badge && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full">{b.badge}</span>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] xs:text-xs font-bold px-3 xs:px-4 py-1 xs:py-1.5 rounded-full whitespace-nowrap">{b.badge}</span>
                 )}
-                <p className="font-semibold text-xl mb-3 font-serif">{b.qty}</p>
-                <div className="flex items-center justify-center gap-3 mb-5">
-                  {b.orig && <span className="text-muted-foreground line-through text-lg">{b.orig}</span>}
-                  <span className="text-3xl font-bold text-primary">{b.price}</span>
+                <p className="font-semibold text-base xs:text-xl mb-2 xs:mb-3 font-serif">{b.qty}</p>
+                <div className="flex items-center justify-center gap-2 xs:gap-3 mb-3 xs:mb-5">
+                  {b.orig && <span className="text-muted-foreground line-through text-sm xs:text-lg">{b.orig}</span>}
+                  <span className="text-2xl xs:text-3xl font-bold text-primary">{b.price}</span>
                 </div>
-                <Button variant="cta" size="lg" className="w-full" asChild>
-                  <a href={SHOP_URL}>Acheter</a>
+                <Button variant="cta" size="lg" className="w-full text-xs xs:text-sm py-3 rounded-lg mt-auto" asChild>
+                  <a href={SHOP_URL} className="w-full flex items-center justify-center">Acheter</a>
                 </Button>
               </div>
             ))}

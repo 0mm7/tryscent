@@ -208,8 +208,16 @@ const Calculateur = () => {
               />
             ) : null}
 
-            <Button variant="cta" size="xl" className="mt-8 w-full text-base" asChild>
-              <a href={SHOP_URL}>Économisez {result.pct}% — Acheter maintenant →</a>
+            <Button 
+              variant="cta" 
+              size="xl" 
+              className="mt-8 w-full text-xs xs:text-sm sm:text-base py-4 rounded-xl tracking-wider font-bold shadow-lg flex items-center justify-center gap-2"
+              asChild
+            >
+              <a href={SHOP_URL} className="w-full flex items-center justify-center">
+                <span className="whitespace-nowrap">Économisez {result.pct}% —</span>
+                <span className="ml-1 whitespace-nowrap">Acheter maintenant →</span>
+              </a>
             </Button>
           </div>
         </div>
