@@ -60,45 +60,45 @@ const Coulisses = () => (
     </section>
 
     <article className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
-      {/* Pct table */}
+      {/* Pct table - fully responsive */}
       <div className="mb-16">
-        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold mb-5 sm:mb-8">Répartition du prix en %</h2>
-        <div className="overflow-x-auto bg-secondary rounded-2xl border border-border scrollbar-hide">
-          <table className="min-w-[420px] w-full text-xs sm:text-sm md:text-base">
+        <h2 className="font-serif text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-8 text-center sm:text-left">Répartition du prix en %</h2>
+        <div className="w-full overflow-x-auto bg-secondary rounded-2xl border border-border scrollbar-hide">
+          <table className="min-w-[340px] w-full text-xs xs:text-sm sm:text-base">
             <thead>
               <tr className="border-b-2 border-foreground/20">
-                <th className="text-left py-2 sm:py-3 px-2 sm:px-4 font-sans font-medium text-muted-foreground text-xs sm:text-sm"></th>
-                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-sans font-medium text-muted-foreground text-xs sm:text-sm">Marque luxe</th>
-                <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-sans font-medium relative text-xs sm:text-sm">
+                <th className="text-left py-2 px-2 xs:py-2 xs:px-3 sm:py-3 sm:px-4 font-sans font-medium text-muted-foreground text-xs xs:text-sm sm:text-base"></th>
+                <th className="text-center py-2 px-2 xs:py-2 xs:px-3 sm:py-3 sm:px-4 font-sans font-medium text-muted-foreground text-xs xs:text-sm sm:text-base">Marque luxe</th>
+                <th className="text-center py-2 px-2 xs:py-2 xs:px-3 sm:py-3 sm:px-4 font-sans font-medium relative text-xs xs:text-sm sm:text-base">
                   <span className="text-foreground">Magic Perfume — €11,99</span>
-                  <span className="ml-1 sm:ml-2 bg-primary text-primary-foreground text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm">95% MOINS CHER</span>
+                  <span className="ml-1 xs:ml-1.5 sm:ml-2 bg-primary text-primary-foreground text-[10px] xs:text-xs font-bold px-1 xs:px-1.5 sm:px-2 py-0.5 xs:py-1 rounded-sm whitespace-nowrap">95% MOINS CHER</span>
                 </th>
               </tr>
             </thead>
             <tbody>
               {pctRows.map((r, i) => (
-                <tr key={i} className={`border-b border-border/60 ${r.highlight ? "bg-primary/5" : ""}`}>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 font-medium text-xs sm:text-sm">{r.label}</td>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 text-center text-muted-foreground text-xs sm:text-sm">{r.lux}</td>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 text-center font-semibold text-primary text-xs sm:text-sm">{r.mp}</td>
+                <tr key={i} className={`border-b border-border/60 ${r.highlight ? "bg-primary/5" : ""}`}> 
+                  <td className="py-2 px-2 xs:py-2 xs:px-3 sm:py-3 sm:px-4 font-medium text-xs xs:text-sm sm:text-base whitespace-nowrap">{r.label}</td>
+                  <td className="py-2 px-2 xs:py-2 xs:px-3 sm:py-3 sm:px-4 text-center text-muted-foreground text-xs xs:text-sm sm:text-base whitespace-nowrap">{r.lux}</td>
+                  <td className="py-2 px-2 xs:py-2 xs:px-3 sm:py-3 sm:px-4 text-center font-semibold text-primary text-xs xs:text-sm sm:text-base whitespace-nowrap">{r.mp}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4 sm:mt-6 text-xs sm:text-sm text-muted-foreground">
-          <p className="flex-1">Source : analyses financières secteur parfumerie, rapports annuels LVMH & Coty</p>
-          <p className="flex-1 font-medium text-foreground">La majorité de votre argent va dans le parfum, pas dans la pub.</p>
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-3 sm:mt-6 text-xs xs:text-sm sm:text-base text-muted-foreground">
+          <p className="flex-1 text-center sm:text-left">Source : analyses financières secteur parfumerie, rapports annuels LVMH & Coty</p>
+          <p className="flex-1 font-medium text-foreground text-center sm:text-left">La majorité de votre argent va dans le parfum, pas dans la pub.</p>
         </div>
       </div>
 
-      {/* Visual breakdown */}
-      <div className="bg-foreground text-background rounded-2xl p-10 lg:p-14 mb-16">
-        <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-4 text-center">Où va votre argent ?</h2>
-        <p className="text-center text-background/60 mb-10 text-lg">Sur un flacon à €250, voici la répartition :</p>
-        <div className="grid md:grid-cols-2 gap-10">
+      {/* Visual breakdown - fully responsive */}
+      <div className="bg-foreground text-background rounded-2xl p-5 xs:p-7 sm:p-10 lg:p-14 mb-16">
+        <h2 className="font-serif text-2xl xs:text-3xl lg:text-4xl font-bold mb-4 text-center">Où va votre argent ?</h2>
+        <p className="text-center text-background/60 mb-7 xs:mb-10 text-base xs:text-lg">Sur un flacon à €250, voici la répartition :</p>
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-7 xs:gap-10">
           <div>
-            <h3 className="text-xs font-bold tracking-widest uppercase text-background/40 mb-6">Marque de luxe — €250</h3>
+            <h3 className="text-xs font-bold tracking-widest uppercase text-background/40 mb-4 xs:mb-6">Marque de luxe — €250</h3>
             {[
               { label: "Marketing & Pub", pct: 40, color: "bg-muted-foreground/50" },
               { label: "Marge distributeur", pct: 28, color: "bg-muted-foreground/40" },
@@ -106,19 +106,19 @@ const Coulisses = () => (
               { label: "Profit marque", pct: 12, color: "bg-muted-foreground/20" },
               { label: "Parfum réel", pct: 4, color: "bg-primary" },
             ].map((item, i) => (
-              <div key={i} className="mb-4">
-                <div className="flex justify-between text-sm mb-1">
+              <div key={i} className="mb-3 xs:mb-4">
+                <div className="flex justify-between text-xs xs:text-sm mb-1">
                   <span className="text-background/70">{item.label}</span>
                   <span className="font-bold">{item.pct}%</span>
                 </div>
-                <div className="h-4 bg-background/10 rounded-full overflow-hidden">
+                <div className="h-3 xs:h-4 bg-background/10 rounded-full overflow-hidden">
                   <div className={`h-full ${item.color} rounded-full`} style={{ width: `${item.pct}%` }} />
                 </div>
               </div>
             ))}
           </div>
           <div>
-            <h3 className="text-xs font-bold tracking-widest uppercase text-background/40 mb-6">Magic Perfume — €11,99</h3>
+            <h3 className="text-xs font-bold tracking-widest uppercase text-background/40 mb-4 xs:mb-6">Magic Perfume — €11,99</h3>
             {[
               { label: "Parfum réel", pct: 45, color: "bg-primary" },
               { label: "Fabrication UE", pct: 20, color: "bg-primary/70" },
@@ -126,12 +126,12 @@ const Coulisses = () => (
               { label: "Logistique directe", pct: 10, color: "bg-primary/40" },
               { label: "Marge", pct: 13, color: "bg-primary/30" },
             ].map((item, i) => (
-              <div key={i} className="mb-4">
-                <div className="flex justify-between text-sm mb-1">
+              <div key={i} className="mb-3 xs:mb-4">
+                <div className="flex justify-between text-xs xs:text-sm mb-1">
                   <span className="text-background/70">{item.label}</span>
                   <span className="font-bold">{item.pct}%</span>
                 </div>
-                <div className="h-4 bg-background/10 rounded-full overflow-hidden">
+                <div className="h-3 xs:h-4 bg-background/10 rounded-full overflow-hidden">
                   <div className={`h-full ${item.color} rounded-full`} style={{ width: `${item.pct}%` }} />
                 </div>
               </div>
@@ -140,24 +140,24 @@ const Coulisses = () => (
         </div>
       </div>
 
-      {/* Euro breakdown */}
+      {/* Euro breakdown - fully responsive */}
       <div className="mb-16">
-        <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-8">Décomposition par flacon</h2>
-        <div className="overflow-x-auto bg-secondary rounded-2xl border border-border">
-          <table className="w-full text-base">
+        <h2 className="font-serif text-2xl xs:text-3xl lg:text-4xl font-bold mb-5 xs:mb-8 text-center sm:text-left">Décomposition par flacon</h2>
+        <div className="w-full overflow-x-auto bg-secondary rounded-2xl border border-border scrollbar-hide">
+          <table className="min-w-[340px] w-full text-xs xs:text-sm sm:text-base">
             <thead>
               <tr className="border-b-2 border-foreground/20">
-                <th className="text-left py-5 px-6 font-sans font-medium text-muted-foreground"></th>
-                <th className="text-center py-5 px-6 font-sans font-medium text-muted-foreground">Marque de luxe</th>
-                <th className="text-center py-5 px-6 font-sans font-medium text-foreground">Magic Perfume</th>
+                <th className="text-left py-3 px-3 xs:py-4 xs:px-4 sm:py-5 sm:px-6 font-sans font-medium text-muted-foreground text-xs xs:text-sm sm:text-base"></th>
+                <th className="text-center py-3 px-3 xs:py-4 xs:px-4 sm:py-5 sm:px-6 font-sans font-medium text-muted-foreground text-xs xs:text-sm sm:text-base">Marque de luxe</th>
+                <th className="text-center py-3 px-3 xs:py-4 xs:px-4 sm:py-5 sm:px-6 font-sans font-medium text-foreground text-xs xs:text-sm sm:text-base">Magic Perfume</th>
               </tr>
             </thead>
             <tbody>
               {euroRows.map((r, i) => (
-                <tr key={i} className={`border-b border-border/60 ${i === euroRows.length - 1 ? "font-bold text-xl bg-primary/5" : ""}`}>
-                  <td className="py-5 px-6 font-medium">{r.label}</td>
-                  <td className="py-5 px-6 text-center text-muted-foreground">{r.lux}</td>
-                  <td className={`py-5 px-6 text-center ${i === euroRows.length - 1 ? "text-primary text-2xl" : "font-semibold"}`}>{r.mp}</td>
+                <tr key={i} className={`border-b border-border/60 ${i === euroRows.length - 1 ? "font-bold text-base xs:text-xl bg-primary/5" : ""}`}> 
+                  <td className="py-3 px-3 xs:py-4 xs:px-4 sm:py-5 sm:px-6 font-medium text-xs xs:text-sm sm:text-base whitespace-nowrap">{r.label}</td>
+                  <td className="py-3 px-3 xs:py-4 xs:px-4 sm:py-5 sm:px-6 text-center text-muted-foreground text-xs xs:text-sm sm:text-base whitespace-nowrap">{r.lux}</td>
+                  <td className={`py-3 px-3 xs:py-4 xs:px-4 sm:py-5 sm:px-6 text-center ${i === euroRows.length - 1 ? "text-primary text-lg xs:text-2xl" : "font-semibold"} text-xs xs:text-sm sm:text-base whitespace-nowrap`}>{r.mp}</td>
                 </tr>
               ))}
             </tbody>

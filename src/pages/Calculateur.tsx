@@ -87,7 +87,7 @@ const Calculateur = () => {
       </section>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-16 lg:py-20">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-6 sm:gap-10 lg:gap-14">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1fr] gap-6 sm:gap-10 lg:gap-14">
           {/* Left — inputs */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-5 flex items-center gap-2">
@@ -163,27 +163,27 @@ const Calculateur = () => {
           </div>
 
           {/* Right — results */}
-          <div className="bg-foreground text-background rounded-2xl p-4 sm:p-8 lg:p-12 flex flex-col justify-center sticky top-20 sm:top-32">
+          <div className="bg-foreground text-background rounded-2xl p-4 xs:p-6 sm:p-8 lg:p-12 flex flex-col justify-center mt-6 lg:mt-0 sticky top-20 sm:top-32">
             <div className="flex items-center gap-2 mb-3">
               <Calculator size={20} className="text-primary" />
               <p className="text-xs font-bold uppercase tracking-widest text-background/50">Vos économies totales</p>
             </div>
-            <p className="text-6xl lg:text-7xl font-bold text-primary font-serif mb-3">
+            <p className="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold text-primary font-serif mb-3 text-center lg:text-left">
               €{result.savings.toFixed(2).replace(".", ",")}
             </p>
-            <p className="text-base text-background/60 mb-8">
+            <p className="text-sm xs:text-base text-background/60 mb-8 text-center lg:text-left">
               {result.pct}% économisé · Sur {years} an{years > 1 ? "s" : ""} · {bottles} flacon{bottles > 1 ? "s" : ""} · {useCustom && customPrice !== "" ? `Prix personnalisé` : perfumes[selected].name}
             </p>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-background/10 rounded-xl p-5 text-center">
-                <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-2">Coût luxe</p>
-                <p className="text-2xl font-bold text-background">€{result.lux.toFixed(2).replace(".", ",")}</p>
+            <div className="grid grid-cols-2 gap-3 xs:gap-4 mb-8">
+              <div className="bg-background/10 rounded-xl p-3 xs:p-5 text-center">
+                <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-1 xs:mb-2">Coût luxe</p>
+                <p className="text-lg xs:text-2xl font-bold text-background">€{result.lux.toFixed(2).replace('.', ',')}</p>
                 <p className="text-xs text-background/50 mt-1">{bottles}× {useCustom && customPrice !== "" ? "Votre prix" : perfumes[selected].name}</p>
               </div>
-              <div className="bg-primary/20 rounded-xl p-5 text-center">
-                <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-2">Coût Magic Perfume</p>
-                <p className="text-2xl font-bold text-primary">€{result.mp.toFixed(2).replace(".", ",")}</p>
+              <div className="bg-primary/20 rounded-xl p-3 xs:p-5 text-center">
+                <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-1 xs:mb-2">Coût Magic Perfume</p>
+                <p className="text-lg xs:text-2xl font-bold text-primary">€{result.mp.toFixed(2).replace('.', ',')}</p>
                 <p className="text-xs text-background/50 mt-1">{bottles}× Magic Perfume</p>
               </div>
             </div>

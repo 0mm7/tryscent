@@ -99,20 +99,20 @@ const TestAveugle = () => (
       </div>
 
       {/* Study results */}
-      <div className="grid lg:grid-cols-2 gap-10 mb-16">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-7 xs:gap-10 mb-16">
         <div>
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-4">Les résultats parlent d'eux-mêmes</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+          <h2 className="font-serif text-2xl xs:text-3xl lg:text-4xl font-bold mb-3 xs:mb-4">Les résultats parlent d'eux-mêmes</h2>
+          <p className="text-base xs:text-lg text-muted-foreground leading-relaxed mb-4 xs:mb-6">
             Dans des conditions contrôlées, nous avons présenté à chaque participant deux bandes parfumées non étiquetées — l'une provenant d'une marque de luxe, l'autre de Magic Perfume. Les résultats ont été vérifiés par un comité indépendant.
           </p>
-          <div className="bg-stat border-l-4 border-primary rounded-r-lg p-6">
-            <p className="text-xl font-serif font-bold leading-relaxed">
+          <div className="bg-stat border-l-4 border-primary rounded-r-lg p-4 xs:p-6">
+            <p className="text-base xs:text-xl font-serif font-bold leading-relaxed">
               87% des participants ont jugé Magic Perfume <span className="text-primary">égal ou supérieur</span> au parfum de luxe.
             </p>
           </div>
         </div>
-        <div className="bg-secondary rounded-2xl p-8 lg:p-10">
-          <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">Résultats — 200 participants · Conditions contrôlées</p>
+        <div className="bg-secondary rounded-2xl p-5 xs:p-8 lg:p-10 mt-6 lg:mt-0">
+          <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-5 xs:mb-8">Résultats — 200 participants · Conditions contrôlées</p>
           {bars.map((b, i) => (
             <AnimatedBar key={i} {...b} />
           ))}
