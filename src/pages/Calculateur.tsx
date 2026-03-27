@@ -139,26 +139,36 @@ const Calculateur = () => {
             </div>
             {/* Sliders */}
             <div className="mb-8">
-              <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-3 block">
-                Flacons par an : <span className="text-primary text-lg">{bottles}</span>
-              </label>
+              <div className="flex items-center justify-between mb-2">
+                <label className="text-xs xs:text-sm font-bold uppercase tracking-widest text-muted-foreground">Flacons par an :</label>
+                <span className="text-primary text-base xs:text-lg font-bold">{bottles}</span>
+              </div>
               <input
                 type="range" min={1} max={12} value={bottles}
                 onChange={(e) => setBottles(Number(e.target.value))}
-                className="w-full accent-primary h-2"
+                className="w-full accent-primary h-3 xs:h-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                style={{ touchAction: 'pan-x' }}
               />
-              <div className="flex justify-between text-sm text-muted-foreground mt-1"><span>1</span><span>12</span></div>
+              <div className="flex justify-between text-xs xs:text-sm text-muted-foreground mt-1 px-1">
+                <span>1</span>
+                <span>12</span>
+              </div>
             </div>
             <div className="mb-8">
-              <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-3 block">
-                Période : <span className="text-primary text-lg">{years} an{years > 1 ? "s" : ""}</span>
-              </label>
+              <div className="flex items-center justify-between mb-2">
+                <label className="text-xs xs:text-sm font-bold uppercase tracking-widest text-muted-foreground">Période :</label>
+                <span className="text-primary text-base xs:text-lg font-bold">{years} an{years > 1 ? "s" : ""}</span>
+              </div>
               <input
                 type="range" min={1} max={5} value={years}
                 onChange={(e) => setYears(Number(e.target.value))}
-                className="w-full accent-primary h-2"
+                className="w-full accent-primary h-3 xs:h-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                style={{ touchAction: 'pan-x' }}
               />
-              <div className="flex justify-between text-sm text-muted-foreground mt-1"><span>1 an</span><span>5 ans</span></div>
+              <div className="flex justify-between text-xs xs:text-sm text-muted-foreground mt-1 px-1">
+                <span>1 an</span>
+                <span>5 ans</span>
+              </div>
             </div>
           </div>
 
@@ -168,23 +178,23 @@ const Calculateur = () => {
               <Calculator size={20} className="text-primary" />
               <p className="text-xs font-bold uppercase tracking-widest text-background/50">Vos économies totales</p>
             </div>
-            <p className="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold text-primary font-serif mb-3 text-center lg:text-left">
+            <p className="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold text-primary font-serif mb-3 text-center lg:text-left leading-tight">
               €{result.savings.toFixed(2).replace(".", ",")}
             </p>
-            <p className="text-sm xs:text-base text-background/60 mb-8 text-center lg:text-left">
+            <p className="text-xs xs:text-sm sm:text-base text-background/60 mb-8 text-center lg:text-left">
               {result.pct}% économisé · Sur {years} an{years > 1 ? "s" : ""} · {bottles} flacon{bottles > 1 ? "s" : ""} · {useCustom && customPrice !== "" ? `Prix personnalisé` : perfumes[selected].name}
             </p>
 
-            <div className="grid grid-cols-2 gap-3 xs:gap-4 mb-8">
-              <div className="bg-background/10 rounded-xl p-3 xs:p-5 text-center">
-                <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-1 xs:mb-2">Coût luxe</p>
-                <p className="text-lg xs:text-2xl font-bold text-background">€{result.lux.toFixed(2).replace('.', ',')}</p>
-                <p className="text-xs text-background/50 mt-1">{bottles}× {useCustom && customPrice !== "" ? "Votre prix" : perfumes[selected].name}</p>
+            <div className="grid grid-cols-2 gap-2 xs:gap-4 mb-8">
+              <div className="bg-background/10 rounded-xl p-2 xs:p-4 text-center flex flex-col items-center justify-center">
+                <p className="text-[10px] xs:text-xs font-bold uppercase tracking-widest text-background/50 mb-1 xs:mb-2">Coût luxe</p>
+                <p className="text-base xs:text-xl font-bold text-background">€{result.lux.toFixed(2).replace('.', ',')}</p>
+                <p className="text-[10px] xs:text-xs text-background/50 mt-1">{bottles}× {useCustom && customPrice !== "" ? "Votre prix" : perfumes[selected].name}</p>
               </div>
-              <div className="bg-primary/20 rounded-xl p-3 xs:p-5 text-center">
-                <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-1 xs:mb-2">Coût Magic Perfume</p>
-                <p className="text-lg xs:text-2xl font-bold text-primary">€{result.mp.toFixed(2).replace('.', ',')}</p>
-                <p className="text-xs text-background/50 mt-1">{bottles}× Magic Perfume</p>
+              <div className="bg-primary/20 rounded-xl p-2 xs:p-4 text-center flex flex-col items-center justify-center">
+                <p className="text-[10px] xs:text-xs font-bold uppercase tracking-widest text-background/50 mb-1 xs:mb-2">Coût Magic Perfume</p>
+                <p className="text-base xs:text-xl font-bold text-primary">€{result.mp.toFixed(2).replace('.', ',')}</p>
+                <p className="text-[10px] xs:text-xs text-background/50 mt-1">{bottles}× Magic Perfume</p>
               </div>
             </div>
 
