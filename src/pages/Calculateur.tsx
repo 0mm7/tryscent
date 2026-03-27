@@ -50,14 +50,19 @@ const Calculateur = () => {
   const [selected, setSelected] = useState(0);
   const [bottles, setBottles] = useState(3);
   const [years, setYears] = useState(1);
+  const [customPrice, setCustomPrice] = useState("");
+  const [useCustom, setUseCustom] = useState(false);
+
+  // Determine which price to use
+  const luxPrice = useCustom && customPrice !== "" ? Number(customPrice) : perfumes[selected].price;
 
   const result = useMemo(() => {
-    const lux = perfumes[selected].price * bottles * years;
+    const lux = luxPrice * bottles * years;
     const mp = MAGIC_PRICE * bottles * years;
     const savings = lux - mp;
-    const pct = Math.round((savings / lux) * 100);
+    const pct = lux > 0 ? Math.round((savings / lux) * 100) : 0;
     return { lux, mp, savings, pct };
-  }, [selected, bottles, years]);
+  }, [luxPrice, bottles, years]);
 
   const maxCost = Math.max(result.lux, result.mp);
 
@@ -86,25 +91,52 @@ const Calculateur = () => {
           {/* Left — inputs */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-5 flex items-center gap-2">
-              <Sparkles size={16} className="text-primary" /> Votre parfum actuel
+              <Sparkles size={16} className="text-primary" /> Prix du parfum de luxe
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-8 sm:mb-10">
-              {perfumes.map((p, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSelected(i)}
-                  className={`text-left px-3 sm:px-5 py-3 sm:py-4 rounded-lg sm:rounded-xl border text-sm sm:text-base font-medium transition-all ${
-                    selected === i
-                      ? "border-primary bg-primary/10 text-foreground shadow-md"
-                      : "border-border bg-secondary text-muted-foreground hover:border-primary/40"
-                  }`}
-                >
-                  <span className="block">{p.name}</span>
-                  <span className={`text-sm ${selected === i ? "text-primary font-bold" : "text-muted-foreground"}`}>€{p.price}</span>
-                </button>
-              ))}
+            {/* Custom price input */}
+            <div className="mb-6 bg-secondary rounded-xl p-4 border-2 border-primary/30">
+              <label className="text-xs sm:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2 block">
+                Entrez le prix (€)
+              </label>
+              <input
+                type="number"
+                min={1}
+                max={1000}
+                step={1}
+                value={useCustom ? customPrice : luxPrice}
+                onChange={e => {
+                  setCustomPrice(e.target.value);
+                  setUseCustom(true);
+                }}
+                onFocus={() => setUseCustom(true)}
+                placeholder="Ex: 250"
+                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm font-medium text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary"
+              />
+              <div className="text-xs text-muted-foreground mt-1">Tapez un prix ou choisissez une marque ci-dessous</div>
             </div>
-
+            {/* Preset buttons */}
+            <div className="mb-8 sm:mb-10">
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">Ou choisissez une marque</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                {perfumes.map((p, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setSelected(i);
+                      setUseCustom(false);
+                    }}
+                    className={`text-left px-3 sm:px-5 py-3 sm:py-4 rounded-lg sm:rounded-xl border text-xs sm:text-sm font-medium transition-all ${
+                      !useCustom && selected === i
+                        ? "border-primary bg-primary/10 text-foreground shadow-md"
+                        : "border-border bg-secondary text-muted-foreground hover:border-primary/40"
+                    }`}
+                  >
+                    <span className="block truncate">{p.name}</span>
+                    <span className="text-xs sm:text-xs font-semibold">€{p.price}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
             {/* Sliders */}
             <div className="mb-8">
               <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-3 block">
@@ -117,7 +149,6 @@ const Calculateur = () => {
               />
               <div className="flex justify-between text-sm text-muted-foreground mt-1"><span>1</span><span>12</span></div>
             </div>
-
             <div className="mb-8">
               <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-3 block">
                 Période : <span className="text-primary text-lg">{years} an{years > 1 ? "s" : ""}</span>
@@ -141,14 +172,14 @@ const Calculateur = () => {
               €{result.savings.toFixed(2).replace(".", ",")}
             </p>
             <p className="text-base text-background/60 mb-8">
-              {result.pct}% économisé · Sur {years} an{years > 1 ? "s" : ""} · {bottles} flacon{bottles > 1 ? "s" : ""} · {perfumes[selected].name}
+              {result.pct}% économisé · Sur {years} an{years > 1 ? "s" : ""} · {bottles} flacon{bottles > 1 ? "s" : ""} · {useCustom && customPrice !== "" ? `Prix personnalisé` : perfumes[selected].name}
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-background/10 rounded-xl p-5 text-center">
                 <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-2">Coût luxe</p>
                 <p className="text-2xl font-bold text-background">€{result.lux.toFixed(2).replace(".", ",")}</p>
-                <p className="text-xs text-background/50 mt-1">{bottles}× {perfumes[selected].name}</p>
+                <p className="text-xs text-background/50 mt-1">{bottles}× {useCustom && customPrice !== "" ? "Votre prix" : perfumes[selected].name}</p>
               </div>
               <div className="bg-primary/20 rounded-xl p-5 text-center">
                 <p className="text-xs font-bold uppercase tracking-widest text-background/50 mb-2">Coût Magic Perfume</p>
