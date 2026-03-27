@@ -188,8 +188,15 @@ const Calculateur = () => {
               </div>
             </div>
 
+
             <AnimatedBar width={100} color="bg-background/30" label={`Luxe — €${result.lux.toFixed(0)}`} />
-            <AnimatedBar width={Math.max(2, (result.mp / maxCost) * 100)} color="bg-primary" label={`Magic Perfume — €${result.mp.toFixed(2)}`} />
+            {result.lux > 0 ? (
+              <AnimatedBar
+                width={Math.max(0.5, Math.min(100, (result.mp / result.lux) * 100))}
+                color="bg-primary"
+                label={`Magic Perfume — €${result.mp.toFixed(2)}`}
+              />
+            ) : null}
 
             <Button variant="cta" size="xl" className="mt-8 w-full text-base" asChild>
               <a href={SHOP_URL}>Économisez {result.pct}% — Acheter maintenant →</a>
